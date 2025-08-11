@@ -69,7 +69,6 @@ All colors MUST be HSL.
 
 @layer components {
   .hover-scale { @apply transition-transform duration-200 hover:scale-105; }
-  .story-link { @apply relative inline-block; }
-  .story-link::after { content: ""; @apply absolute w-full scale-x-0 h-0.5 bottom-0 left-0 bg-primary origin-bottom-right transition-transform duration-300; }
-  .story-link:hover::after { @apply scale-x-100 origin-bottom-left; }
+  .story-link { @apply relative inline-block; background-image: linear-gradient(currentColor, currentColor); background-position: 0 100%; background-repeat: no-repeat; background-size: 0% 2px; transition: background-size 300ms; }
+  .story-link:hover { background-size: 100% 2px; }
 }
