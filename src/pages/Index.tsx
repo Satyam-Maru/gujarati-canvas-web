@@ -4,15 +4,15 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
   BookOpen,
-  HandHeart,
   Leaf,
   Landmark,
   Users,
   Stethoscope,
   GraduationCap,
   Briefcase,
-  TreePine,
-  Network,
+  Trees,
+  Share2,
+  Handshake,
 } from "lucide-react";
 
 const Section = ({ id, title, children, subtitle }: { id: string; title: string; subtitle?: string; children: React.ReactNode }) => (
@@ -86,8 +86,8 @@ const Goals = () => {
     { icon: Stethoscope, title: "આરોગ્ય અને માનવ સેવા", desc: "મેડિકલ કેમ્પ, રક્તદાન, માનસિક આરોગ્ય માટે કાઉન્સેલિંગ અને સહાય." },
     { icon: Landmark, title: "આપત્તિ સહાય અને તાલીમ", desc: "આપત્તિ સમયે તાત્કાલિક સહાય અને રિસ્પોન્સ ટીમની તાલીમ." },
     { icon: Briefcase, title: "રોજગાર અને કૌશલ્ય વિકાસ", desc: "વર્કશોપ્સ, કરિયર માર્ગદર્શન, ઉદ્યમિતા તાલીમ." },
-    { icon: TreePine, title: "ગામ વિકાસ અને પર્યાવરણ", desc: "વૃક્ષારોપણ, પાણી સંરક્ષણ, સ્વચ્છતા અભિયાન અને હરિત વિકાસ." },
-    { icon: Network, title: "સહકાર અને સંસાધન", desc: "સરકાર/સંસ્થાઓ સાથે સહકારથી પ્રોજેક્ટ મેનેજમેન્ટ અને અમલીકરણ." },
+    { icon: Trees, title: "ગામ વિકાસ અને પર્યાવરણ", desc: "વૃક્ષારોપણ, પાણી સંરક્ષણ, સ્વચ્છતા અભિયાન અને હરિત વિકાસ." },
+    { icon: Share2, title: "સહકાર અને સંસાધન", desc: "સરકાર/સંસ્થાઓ સાથે સહકારથી પ્રોજેક્ટ મેનેજમેન્ટ અને અમલીકરણ." },
   ], []);
 
   return (
@@ -149,7 +149,7 @@ const Journey = () => {
     {
       title: "સ્નેહમૃદુ – વિશિષ્ટ માનવતા",
       detail: "વૃદ્ધાશ્રમ/અનાથાશ્રમ મુલાકાતો, સહાય અને સાંસ્કૃતિક કાર્યક્રમો.",
-      icon: HandHeart,
+      icon: Handshake,
     },
     {
       title: "વાણીવટિકા – જ્ઞાન અને સાહિત્ય પ્રોત્સાહન",
