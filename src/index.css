@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Design system tokens (HSL) */
+@layer base {
+  :root {
+    --background: 150 40% 98%;
+    --foreground: 156 16% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 156 16% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 156 16% 12%;
+
+    --primary: 156 34% 28%; /* deep green */
+    --primary-foreground: 150 40% 98%;
+
+    --secondary: 150 35% 94%; /* mint */
+    --secondary-foreground: 156 34% 22%;
+
+    --muted: 150 35% 94%;
+    --muted-foreground: 156 12% 40%;
+
+    --accent: 156 30% 88%;
+    --accent-foreground: 156 28% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 152 25% 86%;
+    --input: 152 25% 86%;
+    --ring: 156 34% 28%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 150 40% 98%;
+    --sidebar-foreground: 156 16% 12%;
+    --sidebar-primary: 156 34% 28%;
+    --sidebar-primary-foreground: 150 40% 98%;
+    --sidebar-accent: 156 30% 88%;
+    --sidebar-accent-foreground: 156 28% 20%;
+    --sidebar-border: 152 25% 86%;
+    --sidebar-ring: 156 34% 28%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-ui; }
+}
+
+@layer utilities {
+  .hover-scale { @apply transition-transform duration-200 hover:scale-105; }
+  .reveal { @apply animate-fade-in; }
+}
