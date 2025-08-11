@@ -70,7 +70,11 @@ const Section = ({
 
 const Hero = () => (
   <header className="relative overflow-hidden">
-    <div className="container mx-auto px-4 py-20 md:py-28 text-center">
+    <div
+      className="absolute inset-0 bg-cover bg-center opacity-20"
+      style={{ backgroundImage: "url('/hero.png')" }}
+    />
+    <div className="container mx-auto px-4 py-20 md:py-28 text-center relative z-10">
       <div className="mx-auto max-w-4xl">
         <motion.h1
           className="font-gujarati text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-primary"
@@ -115,16 +119,21 @@ const About = () => (
           તેમણે આ ભાવનાને એક સત્તાવાર સ્વરૂપ આપવાનું નક્કી કર્યું. સેવા સપનાઓને
           હકીકતમાં ઉતારવા માટે તેમણે એક ઔપચારિક ટ્રસ્ટની રચના કરી.
         </p>
-        <p className="font-gujarati text-base md:text-xl mt-10 leading-8 text-foreground/90">
-          આ રીતે વર્ષ 2011માં કાર્યકર રોયલ ફાઉન્ડેશનનો જન્મ થયો – એક એવું
-          સ્વપ્ન, જે નિષ્ઠા, સમર્પણ અને માનવસેવાના સુગંધિત બીજથી પોષાયું. આજે, આ
-          ફાઉન્ડેશન માત્ર સેવા સંસ્થા જ નહીં, પરંતુ સમાજના દરેક વર્ગને સ્પર્શતું
-          એક પ્રેરણાસ્રોત બની ગયું છે — જ્યાં શિક્ષણ, આરોગ્ય, સાંસ્કૃતિક વિકાસ,
-          જીવદયા, પર્યાવરણ સંરક્ષણ અને માનવતા એક મંચ પર આવે છે.
-        </p>
       </div>
       <Card className="border bg-card/70 backdrop-blur border-border/60 shadow-sm hover-scale">
-        <img src="./assets/hero.png" className="rounded-md object-fill" alt="not found" />
+        <CardContent className="p-6">
+          <h3 className="font-gujarati text-2xl font-bold text-primary mb-3">
+            અમારા મૂલ્યો
+          </h3>
+          <p className="list-disc pl-5 space-y-2 text-base md:text-xl font-gujarati text-foreground/90">
+            આ રીતે વર્ષ 2011માં કાર્યકર રોયલ ફાઉન્ડેશનનો જન્મ થયો – એક એવું
+            સ્વપ્ન, જે નિષ્ઠા, સમર્પણ અને માનવસેવાના સુગંધિત બીજથી પોષાયું. આજે,
+            આ ફાઉન્ડેશન માત્ર સેવા સંસ્થા જ નહીં, પરંતુ સમાજના દરેક વર્ગને
+            સ્પર્શતું એક પ્રેરણાસ્રોત બની ગયું છે — જ્યાં શિક્ષણ, આરોગ્ય,
+            સાંસ્કૃતિક વિકાસ, જીવદયા, પર્યાવરણ સંરક્ષણ અને માનવતા એક મંચ પર આવે
+            છે.
+          </p>
+        </CardContent>
       </Card>
     </div>
   </Section>
@@ -205,7 +214,7 @@ const Goals = () => {
 
 const Vision = () => (
   <Section id="vision" title="વિઝન">
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid md:grid-cols-2 gap-8 items-center">
       <div>
         <div className="border-l-[3px] border-green-700 pl-5 text-base md:text-lg">
           <p className="font-bold">
@@ -223,30 +232,19 @@ const Vision = () => (
           </p>
         </div>
         <div className="mt-8">
-          <h2 className="font-gujarati text-xl">
-            અમારું વિઝન: સેવા, શિક્ષણ, આરોગ્ય, સાંસ્કૃતિક વિકાસ, જીવદયા અને
-            ગ્રામ્ય પ્રગતિ દ્વારા એવો સમાજ સર્જવો:
-          </h2>
 
+          <h2 className="font-gujarati text-xl">અમારું વિઝન: સેવા, શિક્ષણ, આરોગ્ય, સાંસ્કૃતિક વિકાસ, જીવદયા અને ગ્રામ્ય પ્રગતિ દ્વારા એવો સમાજ સર્જવો:</h2>
+            
           <ul className="font-gujarati list-disc text-base md:text-xl space-y-2 pl-9 pt-2">
-            <li>
-              જ્યાં દરેકને ભેદભાવ વિના શિક્ષણ, રોજગાર અને આરોગ્યની સમાન તક મળે.
-            </li>
-            <li>
-              જ્યાં માનવીય મૂલ્યો, રાષ્ટ્રપ્રેમ અને પર્યાવરણ પ્રત્યેની જવાબદારી
-              વિકસે.
-            </li>
-            <li>
-              યાં સેવા ભાવના દરેકના જીવનનું કેન્દ્ર બને અને સુખ, શાંતિ તથા
-              સમાનતાથી ભરેલો સમાજ નિર્માણ થાય
-            </li>
-            જ્યાં સેવા ભાવના દરેકના જીવનનું કેન્દ્ર બને અને સુખ, શાંતિ તથા
-            સમાનતાથી ભરેલો સમાજ નિર્માણ થાય
+            <li>જ્યાં દરેકને ભેદભાવ વિના શિક્ષણ, રોજગાર અને આરોગ્યની સમાન તક મળે.</li>
+            <li>જ્યાં માનવીય મૂલ્યો, રાષ્ટ્રપ્રેમ અને પર્યાવરણ પ્રત્યેની જવાબદારી વિકસે.</li>
+            <li>યાં સેવા ભાવના દરેકના જીવનનું કેન્દ્ર બને અને સુખ, શાંતિ તથા સમાનતાથી ભરેલો સમાજ નિર્માણ થાય</li>જ્યાં સેવા ભાવના દરેકના જીવનનું કેન્દ્ર બને અને સુખ, શાંતિ તથા સમાનતાથી ભરેલો સમાજ નિર્માણ થાય
           </ul>
+        
         </div>
       </div>
-      <div className="md:pl-32">
-        <img src="./assets/vision.png" className="rounded-md" alt="img not found" />
+      <div>
+        <img src="/vision.png" alt="Vision" className="rounded-lg shadow-md" />
       </div>
     </div>
   </Section>
@@ -299,7 +297,9 @@ const Journey = () => {
                 <h4 className="font-gujarati text-lg md:text-xl font-bold text-primary">
                   {s.title}
                 </h4>
-                <p className="font-gujarati text-base mt-1">{s.detail}</p>
+                <p className="font-gujarati text-base mt-1">
+                  {s.detail}
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -317,6 +317,7 @@ const Trustees = () => (
           ટ્રસ્ટીઓ
         </h3>
         <ul className="list-disc pl-5 space-y-2 font-gujarati font-semibold text-base md:text-lg">
+
           <li>પારસ દવે – પ્રમુખ</li>
           <li>તુષાર ત્રિવેદી – ઉપ પ્રમુખ</li>
           <li>ચૈતન્ય ત્રિવેદી – મંત્રી</li>
@@ -327,8 +328,7 @@ const Trustees = () => (
         </ul>
       </div>
       <div>
-        <img src="./assets/footer.png" alt="img not found" className="rounded-md"/>
-        <h3 className="font-gujarati text-2xl font-bold pt-4 text-primary mb-3">
+        <h3 className="font-gujarati text-2xl font-bold text-primary mb-3">
           સંપર્ક
         </h3>
         <div className="space-y-2 font-gujarati text-base md:text-lg">
@@ -340,6 +340,13 @@ const Trustees = () => (
     </div>
   </Section>
 );
+
+const Footer = () => (
+  <footer className="relative mt-12">
+    <img src="/footer.png" alt="Footer decorative" className="w-full h-auto" />
+  </footer>
+);
+
 
 const StructuredData = () => {
   const jsonLd = {
@@ -382,6 +389,7 @@ const Index = () => {
         <Vision />
         <Journey />
         <Trustees />
+        <Footer />
       </div>
     </main>
   );
