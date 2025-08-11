@@ -70,7 +70,11 @@ const Section = ({
 
 const Hero = () => (
   <header className="relative overflow-hidden">
-    <div className="container mx-auto px-4 py-20 md:py-28 text-center">
+    <div
+      className="absolute inset-0 bg-cover bg-center opacity-20"
+      style={{ backgroundImage: "url('/hero.png')" }}
+    />
+    <div className="container mx-auto px-4 py-20 md:py-28 text-center relative z-10">
       <div className="mx-auto max-w-4xl">
         <motion.h1
           className="font-gujarati text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-primary"
@@ -210,7 +214,7 @@ const Goals = () => {
 
 const Vision = () => (
   <Section id="vision" title="વિઝન">
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid md:grid-cols-2 gap-8 items-center">
       <div>
         <div className="border-l-[3px] border-green-700 pl-5 text-base md:text-lg">
           <p className="font-bold">
@@ -239,8 +243,8 @@ const Vision = () => (
         
         </div>
       </div>
-      <div className="border border-red-500">
-        <p>Image Section</p>
+      <div>
+        <img src="/vision.png" alt="Vision" className="rounded-lg shadow-md" />
       </div>
     </div>
   </Section>
@@ -337,6 +341,13 @@ const Trustees = () => (
   </Section>
 );
 
+const Footer = () => (
+  <footer className="relative mt-12">
+    <img src="/footer.png" alt="Footer decorative" className="w-full h-auto" />
+  </footer>
+);
+
+
 const StructuredData = () => {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -378,6 +389,7 @@ const Index = () => {
         <Vision />
         <Journey />
         <Trustees />
+        <Footer />
       </div>
     </main>
   );
