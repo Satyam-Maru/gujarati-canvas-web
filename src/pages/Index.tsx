@@ -17,13 +17,15 @@ import {
 
 const Section = ({ id, title, children, subtitle }: { id: string; title: string; subtitle?: string; children: React.ReactNode }) => (
   <section id={id} className="container mx-auto px-4 py-12 md:py-16 animate-fade-in">
-    <header className="mb-6 md:mb-8">
-      <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight font-gujarati text-primary">{title}</h2>
-      {subtitle && (
-        <p className="mt-2 text-muted-foreground font-gujarati text-base md:text-lg">{subtitle}</p>
-      )}
-    </header>
-    {children}
+    <div className="rounded-2xl border border-border bg-secondary/30 p-6 md:p-8">
+      <header className="mb-6 md:mb-8">
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight font-gujarati text-primary">{title}</h2>
+        {subtitle && (
+          <p className="mt-2 text-muted-foreground font-gujarati text-base md:text-lg">{subtitle}</p>
+        )}
+      </header>
+      {children}
+    </div>
   </section>
 );
 
@@ -64,7 +66,7 @@ const About = () => (
           અમે અમારી દરેક પહેલ આગળ ધપાવીએ છીએ.
         </p>
       </div>
-      <Card className="bg-card/70 backdrop-blur border-border/60 shadow-sm hover-scale">
+      <Card className="border bg-card/70 backdrop-blur border-border/60 shadow-sm hover-scale">
         <CardContent className="p-6">
           <h3 className="font-gujarati text-2xl font-bold text-primary mb-3">અમારા મૂલ્યો</h3>
           <ul className="list-disc pl-5 space-y-2 font-gujarati text-foreground/90">
@@ -94,7 +96,7 @@ const Goals = () => {
     <Section id="goals" title="આર્ય ધ રોયલ્સ ફાઉન્ડેશનના મુખ્ય હેતુઓ.">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {items.map(({ icon: Icon, title, desc }) => (
-          <Card key={title} className="border-border/60 bg-card/70 shadow-sm hover-scale">
+          <Card key={title} className="border border-border/60 bg-card/70 shadow-sm hover-scale">
             <CardContent className="p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 rounded-md bg-secondary text-secondary-foreground">
@@ -113,7 +115,7 @@ const Goals = () => {
 
 const Vision = () => (
   <Section id="vision" title="વિઝન" subtitle="સેવા, શિક્ષણ, આરોગ્ય, સાંસ્કૃતિક વિકાસ અને જીવનમૂલ્યો પર આધારિત સમૃદ્ધ સમાજ">
-    <Card className="border-border/60 bg-card/70 shadow-sm">
+    <Card className="border border-border/60 bg-card/70 shadow-sm">
       <CardContent className="p-6 space-y-4">
         <blockquote className="font-gujarati text-xl md:text-2xl text-primary leading-relaxed">
           "પરોપકારાય પુણ્યાય પાપાય પરપીડનમ્" — સનાતન ધર્મનો મર્મ
@@ -161,7 +163,7 @@ const Journey = () => {
     <Section id="journey" title="આર્ય ધ રોયલ ફાઉન્ડેશન – સેવા યાત્રા">
       <div className="grid md:grid-cols-2 gap-6">
         {steps.map((s) => (
-          <Card key={s.title} className="border-border/60 bg-card/70 shadow-sm">
+          <Card key={s.title} className="border border-border/60 bg-card/70 shadow-sm">
             <CardContent className="p-6 flex gap-4">
               <div className="p-2 h-10 w-10 rounded-md bg-secondary text-secondary-foreground flex items-center justify-center shrink-0">
                 <s.icon className="h-5 w-5" />
