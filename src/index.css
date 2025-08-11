@@ -8,51 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 150 40% 98%;
+    --foreground: 156 16% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 156 16% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 156 16% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 156 34% 28%;
+    --primary-foreground: 150 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 150 35% 94%;
+    --secondary-foreground: 156 34% 22%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 150 35% 94%;
+    --muted-foreground: 156 12% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 156 30% 88%;
+    --accent-foreground: 156 28% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 152 25% 86%;
+    --input: 152 25% 86%;
+    --ring: 156 34% 28%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 150 40% 98%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 156 16% 12%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 156 34% 28%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 150 40% 98%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 156 30% 88%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 156 28% 20%;
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 152 25% 86%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 156 34% 28%;
   }
 
   .dark {
@@ -101,5 +101,15 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(40% 40% at 20% 0%, hsl(var(--accent) / 0.6), transparent),
+      radial-gradient(40% 40% at 80% 100%, hsl(var(--secondary) / 0.7), transparent);
+    background-attachment: fixed;
   }
+}
+
+@layer components {
+  .hover-scale { @apply transition-transform duration-200 hover:scale-105; }
+  .story-link { @apply relative inline-block; }
+  .story-link::after { content: ""; @apply absolute w-full scale-x-0 h-0.5 bottom-0 left-0 bg-primary origin-bottom-right transition-transform duration-300; }
+  .story-link:hover::after { @apply scale-x-100 origin-bottom-left; }
 }
