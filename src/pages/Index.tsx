@@ -1,7 +1,5 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import {
   BookOpen,
   Leaf,
@@ -14,6 +12,8 @@ import {
   Share2,
   Handshake,
 } from "lucide-react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Section = ({
   id,
@@ -25,43 +25,75 @@ const Section = ({
   title: string;
   subtitle?: string;
   children: React.ReactNode;
-}) => (
-  <section
-    id={id}
-    className="container mx-auto px-4 py-12 md:py-16 animate-fade-in"
-  >
-    <div className="rounded-2xl border border-green-600 bg-secondary/30 p-6 md:p-8">
-      <header className="mb-6 md:mb-8">
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight font-gujarati text-primary">
-          {title}
-        </h2>
-        {subtitle && (
-          <p className="mt-2 text-muted-foreground font-gujarati text-base md:text-lg">
-            {subtitle}
-          </p>
-        )}
-      </header>
-      {children}
-    </div>
-  </section>
-);
+}) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  return (
+    <motion.section
+      ref={ref}
+      id={id}
+      className="container mx-auto px-4 py-8 md:py-12"
+      initial="hidden"
+      animate={controls}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 50 },
+      }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="rounded-2xl border border-green-600 bg-secondary/30 p-6 md:p-8">
+        <header className="mb-6 md:mb-8">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight font-gujarati text-primary">
+            {title}
+          </h2>
+          {subtitle && (
+            <p className="mt-2 text-muted-foreground font-gujarati text-base md:text-lg">
+              {subtitle}
+            </p>
+          )}
+        </header>
+        {children}
+      </div>
+    </motion.section>
+  );
+};
 
 const Hero = () => (
   <header className="relative overflow-hidden">
     <div className="container mx-auto px-4 py-20 md:py-28 text-center">
       <div className="mx-auto max-w-4xl">
-        <h1 className="font-gujarati text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-primary animate-enter">
+        <motion.h1
+          className="font-gujarati text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-primary"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           આર્ય ધ રોયલ્સ ફાઉન્ડેશન – અમદાવાદ
-        </h1>
-        <p className="mt-4 md:mt-6 font-gujarati text-2xl md:text-3xl text-primary/80 animate-fade-in">
+        </motion.h1>
+        <motion.p
+          className="mt-4 md:mt-6 font-gujarati text-2xl md:text-3xl text-primary/80"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           “સત્કર્મ એજ ધર્મ”
-        </p>
+        </motion.p>
       </div>
     </div>
   </header>
 );
 
-const About = () => ( 
+const About = () => (
   <Section id="about" title="સંસ્થાપરિચય">
     <div className="grid md:grid-cols-2 gap-6 md:gap-10">
       <div>
@@ -339,12 +371,14 @@ const Index = () => {
   return (
     <main>
       <StructuredData />
-      <Hero />
-      <About />
-      <Goals />
-      <Vision />
-      <Journey />
-      <Trustees />
+      <div className="flex flex-col gap-4">
+        <Hero />
+        <About />
+        <Goals />
+        <Vision />
+        <Journey />
+        <Trustees />
+      </div>
     </main>
   );
 };

@@ -12,7 +12,6 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
 			screens: {
 				'2xl': '1400px'
 			}
@@ -104,7 +103,11 @@ export default {
 				'slide-out-right': {
 					'0%': { transform: 'translateX(0)' },
 					'100%': { transform: 'translateX(100%)' }
-				}
+				},
+				'slide-in-from-bottom': {
+          '0%': { transform: 'translateY(100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -114,7 +117,8 @@ export default {
 				'enter': 'fade-in 0.35s ease-out, scale-in 0.25s ease-out',
 				'exit': 'fade-out 0.35s ease-out, scale-out 0.25s ease-out',
 				'slide-in-right': 'slide-in-right 0.35s ease-out',
-				'slide-out-right': 'slide-out-right 0.35s ease-out'
+				'slide-out-right': 'slide-out-right 0.35s ease-out',
+        'slide-in-from-bottom': 'slide-in-from-bottom 0.5s ease-out'
 			}
 		}
 	},

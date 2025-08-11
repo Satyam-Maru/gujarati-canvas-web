@@ -53,5 +53,4 @@
 
 @layer utilities {
   .hover-scale { @apply transition-transform duration-200 hover:scale-105; }
-  .reveal { @apply animate-fade-in; }
 }
