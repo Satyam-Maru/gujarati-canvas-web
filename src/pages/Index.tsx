@@ -125,11 +125,7 @@ const About = () => (
           </p>
       </div>
       <Card className="border bg-card/70 backdrop-blur border-border/60 shadow-sm hover-scale">
-        
-        <div
-      className="absolute inset-0 bg-cover bg-center opacity-20"
-      style={{ backgroundImage: "url('/hero.png')" }}
-    />
+        <img src="/hero.png" alt="img not found" />
       </Card>
     </div>
   </Section>
@@ -239,7 +235,7 @@ const Vision = () => (
         
         </div>
       </div>
-      <div>
+      <div className="md:pl-20">
         <img src="/vision.png" alt="Vision" className="rounded-lg shadow-md" />
       </div>
     </div>
@@ -324,7 +320,8 @@ const Trustees = () => (
         </ul>
       </div>
       <div>
-        <h3 className="font-gujarati text-2xl font-bold text-primary mb-3">
+        <img src="/footer.png" alt="Footer decorative" className="rounded-md" />
+        <h3 className="font-gujarati text-2xl font-bold text-primary my-4">
           સંપર્ક
         </h3>
         <div className="space-y-2 font-gujarati text-base md:text-lg">
@@ -336,13 +333,6 @@ const Trustees = () => (
     </div>
   </Section>
 );
-
-const Footer = () => (
-  <footer className="relative mt-12">
-    <img src="/footer.png" alt="Footer decorative" className="w-full h-auto" />
-  </footer>
-);
-
 
 const StructuredData = () => {
   const jsonLd = {
@@ -385,7 +375,6 @@ const Index = () => {
         <Vision />
         <Journey />
         <Trustees />
-        <Footer />
       </div>
     </main>
   );
