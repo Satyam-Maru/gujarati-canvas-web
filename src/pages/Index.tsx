@@ -70,10 +70,6 @@ const Section = ({
 
 const Hero = () => (
   <header className="relative overflow-hidden">
-    <div
-      className="absolute inset-0 bg-cover bg-center opacity-20"
-      style={{ backgroundImage: "url('/hero.png')" }}
-    />
     <div className="container mx-auto px-4 py-20 md:py-28 text-center relative z-10">
       <div className="mx-auto max-w-4xl">
         <motion.h1
@@ -119,13 +115,7 @@ const About = () => (
           તેમણે આ ભાવનાને એક સત્તાવાર સ્વરૂપ આપવાનું નક્કી કર્યું. સેવા સપનાઓને
           હકીકતમાં ઉતારવા માટે તેમણે એક ઔપચારિક ટ્રસ્ટની રચના કરી.
         </p>
-      </div>
-      <Card className="border bg-card/70 backdrop-blur border-border/60 shadow-sm hover-scale">
-        <CardContent className="p-6">
-          <h3 className="font-gujarati text-2xl font-bold text-primary mb-3">
-            અમારા મૂલ્યો
-          </h3>
-          <p className="list-disc pl-5 space-y-2 text-base md:text-xl font-gujarati text-foreground/90">
+        <p className="font-gujarati text-base md:text-xl mt-10 leading-8 text-foreground/90">
             આ રીતે વર્ષ 2011માં કાર્યકર રોયલ ફાઉન્ડેશનનો જન્મ થયો – એક એવું
             સ્વપ્ન, જે નિષ્ઠા, સમર્પણ અને માનવસેવાના સુગંધિત બીજથી પોષાયું. આજે,
             આ ફાઉન્ડેશન માત્ર સેવા સંસ્થા જ નહીં, પરંતુ સમાજના દરેક વર્ગને
@@ -133,7 +123,13 @@ const About = () => (
             સાંસ્કૃતિક વિકાસ, જીવદયા, પર્યાવરણ સંરક્ષણ અને માનવતા એક મંચ પર આવે
             છે.
           </p>
-        </CardContent>
+      </div>
+      <Card className="border bg-card/70 backdrop-blur border-border/60 shadow-sm hover-scale">
+        
+        <div
+      className="absolute inset-0 bg-cover bg-center opacity-20"
+      style={{ backgroundImage: "url('/hero.png')" }}
+    />
       </Card>
     </div>
   </Section>
