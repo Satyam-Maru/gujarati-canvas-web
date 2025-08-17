@@ -11,10 +11,12 @@ import {
   Trees,
   Share2,
   Handshake,
+  ArrowRight,
 } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Section = ({
   id,
@@ -81,10 +83,12 @@ const Hero = () => (
           transition={{ duration: 0.5 }}
         >
           {/* The margin is changed from right to bottom */}
-          <img src="/logo.jpg" alt="Arya The Royals Foundation Logo" className="h-28 md:h-36 mb-8 border border-green-600 rounded-lg" />
-          <motion.h1
-            className="font-gujarati text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-primary"
-          >
+          <img
+            src="/logo.jpg"
+            alt="Arya The Royals Foundation Logo"
+            className="h-28 md:h-36 mb-8 border border-green-600 rounded-lg"
+          />
+          <motion.h1 className="font-gujarati text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-primary">
             આર્ય ધ રોયલ્સ ફાઉન્ડેશન – અમદાવાદ
           </motion.h1>
         </motion.div>
@@ -124,16 +128,15 @@ const About = () => (
           હકીકતમાં ઉતારવા માટે તેમણે એક ઔપચારિક ટ્રસ્ટની રચના કરી.
         </p>
         <p className="font-gujarati text-base md:text-xl mt-10 leading-8 text-foreground/90">
-            આ રીતે વર્ષ 2011માં કાર્યકર રોયલ ફાઉન્ડેશનનો જન્મ થયો – એક એવું
-            સ્વપ્ન, જે નિષ્ઠા, સમર્પણ અને માનવસેવાના સુગંધિત બીજથી પોષાયું. આજે,
-            આ ફાઉન્ડેશન માત્ર સેવા સંસ્થા જ નહીં, પરંતુ સમાજના દરેક વર્ગને
-            સ્પર્શતું એક પ્રેરણાસ્રોત બની ગયું છે — જ્યાં શિક્ષણ, આરોગ્ય,
-            સાંસ્કૃતિક વિકાસ, જીવદયા, પર્યાવરણ સંરક્ષણ અને માનવતા એક મંચ પર આવે
-            છે.
-          </p>
+          આ રીતે વર્ષ 2011માં કાર્યકર રોયલ ફાઉન્ડેશનનો જન્મ થયો – એક એવું
+          સ્વપ્ન, જે નિષ્ઠા, સમર્પણ અને માનવસેવાના સુગંધિત બીજથી પોષાયું. આજે, આ
+          ફાઉન્ડેશન માત્ર સેવા સંસ્થા જ નહીં, પરંતુ સમાજના દરેક વર્ગને સ્પર્શતું
+          એક પ્રેરણાસ્રોત બની ગયું છે — જ્યાં શિક્ષણ, આરોગ્ય, સાંસ્કૃતિક વિકાસ,
+          જીવદયા, પર્યાવરણ સંરક્ષણ અને માનવતા એક મંચ પર આવે છે.
+        </p>
       </div>
       <Card className="border bg-card/70 backdrop-blur shadow-sm flex hover-scale">
-        <img src="/hero.jpg" alt="img not found" className="rounded-lg"/>
+        <img src="/hero.jpg" alt="img not found" className="rounded-lg" />
       </Card>
     </div>
   </Section>
@@ -187,22 +190,25 @@ const Goals = () => {
     []
   );
 
-   return (
+  return (
     <Section id="goals" title="આર્ય ધ રોયલ્સ ફાઉન્ડેશનના મુખ્ય હેતુઓ.">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {items.map(({ icon: Icon, title, desc, link }) => {
           const cardContent = (
-            <Card
-              className="border border-green-500 bg-card/70 shadow-sm hover-scale h-full"
-            >
+            <Card className="border border-green-500 bg-card/70 shadow-sm hover-scale h-full">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 rounded-md bg-secondary text-secondary-foreground">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-gujarati text-xl font-bold text-primary">
-                    {title}
-                  </h3>
+                  {/* The title section is now a flex container */}
+                  <div className="flex justify-between items-center w-full">
+                    <h3 className="font-gujarati text-xl font-bold text-primary">
+                      {title}
+                    </h3>
+                    {/* The ArrowRight icon is added here for the linked card */}
+                    {link && <ArrowRight className="h-5 w-5 text-primary" />}
+                  </div>
                 </div>
                 <p className="font-gujarati text-foreground/90">{desc}</p>
               </CardContent>
@@ -244,15 +250,26 @@ const Vision = () => (
           </p>
         </div>
         <div className="mt-8">
+          <h2 className="font-gujarati text-xl">
+            અમારું વિઝન: સેવા, શિક્ષણ, આરોગ્ય, સાંસ્કૃતિક વિકાસ, જીવદયા અને
+            ગ્રામ્ય પ્રગતિ દ્વારા એવો સમાજ સર્જવો:
+          </h2>
 
-          <h2 className="font-gujarati text-xl">અમારું વિઝન: સેવા, શિક્ષણ, આરોગ્ય, સાંસ્કૃતિક વિકાસ, જીવદયા અને ગ્રામ્ય પ્રગતિ દ્વારા એવો સમાજ સર્જવો:</h2>
-            
           <ul className="font-gujarati list-disc text-base md:text-xl space-y-2 pl-9 pt-2">
-            <li>જ્યાં દરેકને ભેદભાવ વિના શિક્ષણ, રોજગાર અને આરોગ્યની સમાન તક મળે.</li>
-            <li>જ્યાં માનવીય મૂલ્યો, રાષ્ટ્રપ્રેમ અને પર્યાવરણ પ્રત્યેની જવાબદારી વિકસે.</li>
-            <li>જ્યાં સેવા ભાવના દરેકના જીવનનું કેન્દ્ર બને અને સુખ, શાંતિ તથા સમાનતાથી ભરેલો સમાજ નિર્માણ થાય</li>જ્યાં સેવા ભાવના દરેકના જીવનનું કેન્દ્ર બને અને સુખ, શાંતિ તથા સમાનતાથી ભરેલો સમાજ નિર્માણ થાય
+            <li>
+              જ્યાં દરેકને ભેદભાવ વિના શિક્ષણ, રોજગાર અને આરોગ્યની સમાન તક મળે.
+            </li>
+            <li>
+              જ્યાં માનવીય મૂલ્યો, રાષ્ટ્રપ્રેમ અને પર્યાવરણ પ્રત્યેની જવાબદારી
+              વિકસે.
+            </li>
+            <li>
+              જ્યાં સેવા ભાવના દરેકના જીવનનું કેન્દ્ર બને અને સુખ, શાંતિ તથા
+              સમાનતાથી ભરેલો સમાજ નિર્માણ થાય
+            </li>
+            જ્યાં સેવા ભાવના દરેકના જીવનનું કેન્દ્ર બને અને સુખ, શાંતિ તથા
+            સમાનતાથી ભરેલો સમાજ નિર્માણ થાય
           </ul>
-        
         </div>
       </div>
       <div className="md:pl-20">
@@ -289,7 +306,7 @@ const Journey = () => {
     {
       title: "વાણીવટિકા – જ્ઞાન અને સાહિત્ય પ્રોત્સાહન",
       detail:
-        "ગ્રંથાલય અભિયાન, પુસ્તકદાન અને ગામડાંમાં વાંચન સંસ્કૃતિનું સંવર્ધન.",
+      "ગ્રંથાલય અભિયાન, પુસ્તકદાન અને ગામડાંમાં વાંચન સંસ્કૃતિનું સંવર્ધન.",
       icon: BookOpen,
     },
   ];
@@ -298,7 +315,7 @@ const Journey = () => {
       <div className="grid md:grid-cols-2 gap-6">
         {steps.map((s) => (
           <Card
-            key={s.title}
+          key={s.title}
             className="border border-border/60 bg-card/70 shadow-sm"
           >
             <CardContent className="p-6 flex gap-4">
@@ -309,9 +326,7 @@ const Journey = () => {
                 <h4 className="font-gujarati text-lg md:text-xl font-bold text-primary">
                   {s.title}
                 </h4>
-                <p className="font-gujarati text-base mt-1">
-                  {s.detail}
-                </p>
+                <p className="font-gujarati text-base mt-1">{s.detail}</p>
               </div>
             </CardContent>
           </Card>
@@ -321,6 +336,46 @@ const Journey = () => {
   );
 };
 
+const YouTubeIcon = ({ size = 24 }: { size?: number }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    style={{ width: `${size}px`, height: `${size}px` }}
+  >
+    <path d="M12.043 2.006c-5.524 0-10 4.477-10 10s4.476 10 10 10 10-4.477 10-10-4.476-10-10-10Zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8Zm3.589-8.006-5.178-2.989a1 1 0 0 0-1.5.866v5.978a1 1 0 0 0 1.5.866l5.178-2.989a1 1 0 0 0 0-1.732Z" />
+  </svg>
+);
+
+const LatestUpdatesSection = () => (
+  <Section id="latest-updates" title="લેટેસ્ટ અપડેટ્સ">
+    <div className="text-center">
+      <Card className="inline-block border-2 border-primary hover:shadow-xl transition-shadow duration-300 max-w-2xl">
+        <CardContent className="p-8">
+          <h3 className="font-gujarati text-2xl font-bold text-primary mt-4">
+            અમારી નવીનતમ પ્રવૃત્તિઓ જુઓ
+          </h3>
+          <p className="font-gujarati text-muted-foreground mt-2">
+            આ અમારું પ્રથમ ગ્રંથમંદિરનું ઉદ્ઘાટન હતું અને ધ્રુવ દાદાએ પોતે ગીત ગાઈને શુભારંભ કર્યો હતો. માત્ર એક મિનિટની લાગણી જુઓ આનંદ થશે
+          </p>
+          <a
+            href="https://youtube.com/shorts/XVjlOp_1Omg?si=2y7KhPGjT0AGCy77"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="mt-6 inline-flex items-center bg-white text-black hover:bg-slate-300 border border-black">
+              <span className="mr-2" style={{ color: '#FF0000' }}>
+                <YouTubeIcon size={24} />
+              </span>
+              Watch Now
+            </Button>
+          </a>
+        </CardContent>
+      </Card>
+    </div>
+  </Section>
+);
+
 const Trustees = () => (
   <Section id="trustees" title="ટ્રસ્ટીશ્રી ઓની યાદી">
     <div className="grid md:grid-cols-2 gap-8">
@@ -329,7 +384,6 @@ const Trustees = () => (
           ટ્રસ્ટીઓ
         </h3>
         <ul className="list-disc pl-5 space-y-2 font-gujarati font-semibold text-base md:text-lg">
-
           <li>પારસ દવે – પ્રમુખ</li>
           <li>તુષાર ત્રિવેદી – ઉપ પ્રમુખ</li>
           <li>ચૈતન્ય ત્રિવેદી – મંત્રી</li>
@@ -394,6 +448,7 @@ const Index = () => {
         <Goals />
         <Vision />
         <Journey />
+        <LatestUpdatesSection />
         <Trustees />
       </div>
     </main>

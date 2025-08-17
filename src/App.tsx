@@ -11,24 +11,23 @@ import {
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ShikshanikVikas from "./pages/ShikshanikVikas";
+import LatestUpdates from "./pages/LatestUpdates"; // Import the new page
 
 const queryClient = new QueryClient();
 
-// This component sets up the main layout and includes the scroll restoration
 const RootLayout = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <ScrollRestoration /> {/* This will now work correctly */}
-        <Outlet /> {/* This renders the matched route (e.g., Index, ShikshanikVikas) */}
+        <ScrollRestoration />
+        <Outlet />
       </TooltipProvider>
     </QueryClientProvider>
   );
 };
 
-// Define all your application routes here
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/shikshanik-vikas",
         element: <ShikshanikVikas />,
+      },
+      {
+        path: "/latest-updates", // Add the new route here
+        element: <LatestUpdates />,
       },
       {
         path: "*",
