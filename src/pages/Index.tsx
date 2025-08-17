@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom"; // Import Link
 
 const Section = ({
   id,
@@ -72,14 +73,21 @@ const Hero = () => (
   <header className="relative overflow-hidden">
     <div className="container mx-auto px-4 py-20 md:py-28 text-center relative z-10">
       <div className="mx-auto max-w-4xl">
-        <motion.h1
-          className="font-gujarati text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-primary"
+        <motion.div
+          // The classes here are changed to stack and center the items
+          className="flex flex-col items-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          આર્ય ધ રોયલ્સ ફાઉન્ડેશન – અમદાવાદ
-        </motion.h1>
+          {/* The margin is changed from right to bottom */}
+          <img src="/logo.jpg" alt="Arya The Royals Foundation Logo" className="h-28 md:h-36 mb-8 border border-green-600 rounded-lg" />
+          <motion.h1
+            className="font-gujarati text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-primary"
+          >
+            આર્ય ધ રોયલ્સ ફાઉન્ડેશન – અમદાવાદ
+          </motion.h1>
+        </motion.div>
         <motion.p
           className="mt-4 md:mt-6 font-gujarati text-2xl md:text-3xl text-primary/80"
           initial={{ opacity: 0, y: 20 }}
@@ -124,8 +132,8 @@ const About = () => (
             છે.
           </p>
       </div>
-      <Card className="border bg-card/70 backdrop-blur border-border/60 shadow-sm hover-scale">
-        <img src="/hero.png" alt="img not found" />
+      <Card className="border bg-card/70 backdrop-blur shadow-sm flex hover-scale">
+        <img src="/hero.jpg" alt="img not found" className="rounded-lg"/>
       </Card>
     </div>
   </Section>
@@ -138,6 +146,7 @@ const Goals = () => {
         icon: BookOpen,
         title: "શૈક્ષણિક વિકાસ",
         desc: "ગામડાં, શહેરો અને પછાત વિસ્તારોમાં શિક્ષણનો પ્રસાર કરવો, સંશોધનને પ્રોત્સાહન આપવું, શાળા-મહાવિદ્યાલય, છાત્રાલય અને અભ્યાસગૃહની સ્થાપના કરવી તેમજ ગરીબ અને પ્રતિભાશાળી વિદ્યાર્થીઓને પાઠ્યપુસ્તકો અને આર્થિક સહાય પૂરી પાડવી.",
+        link: "/shikshanik-vikas", // Add a link property
       },
       {
         icon: Users,
@@ -178,27 +187,38 @@ const Goals = () => {
     []
   );
 
-  return (
+   return (
     <Section id="goals" title="આર્ય ધ રોયલ્સ ફાઉન્ડેશનના મુખ્ય હેતુઓ.">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {items.map(({ icon: Icon, title, desc }) => (
-          <Card
-            key={title}
-            className="border border-green-500 bg-card/70 shadow-sm hover-scale"
-          >
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 rounded-md bg-secondary text-secondary-foreground">
-                  <Icon className="h-5 w-5" />
+        {items.map(({ icon: Icon, title, desc, link }) => {
+          const cardContent = (
+            <Card
+              className="border border-green-500 bg-card/70 shadow-sm hover-scale h-full"
+            >
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 rounded-md bg-secondary text-secondary-foreground">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-gujarati text-xl font-bold text-primary">
+                    {title}
+                  </h3>
                 </div>
-                <h3 className="font-gujarati text-xl font-bold text-primary">
-                  {title}
-                </h3>
-              </div>
-              <p className="font-gujarati text-foreground/90">{desc}</p>
-            </CardContent>
-          </Card>
-        ))}
+                <p className="font-gujarati text-foreground/90">{desc}</p>
+              </CardContent>
+            </Card>
+          );
+
+          if (link) {
+            return (
+              <Link to={link} key={title}>
+                {cardContent}
+              </Link>
+            );
+          }
+
+          return <div key={title}>{cardContent}</div>;
+        })}
       </div>
     </Section>
   );
