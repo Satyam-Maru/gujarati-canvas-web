@@ -11,12 +11,6 @@ const ShikshanikVikas = () => {
     "/education/edu-1.jpg",
     "/education/edu-2.jpg",
     "/education/edu-3.jpg",
-    "/education/edu-4.jpg",
-    "/education/edu-5.jpg",
-    "/education/edu-6.jpg",
-    "/education/edu-7.jpg",
-    "/education/edu-8.jpg",
-    "/education/edu-9.jpg",
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -24,7 +18,6 @@ const ShikshanikVikas = () => {
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <div className="flex justify-between items-center mb-12">
-        {/* The Link component is replaced with this Button */}
         <Button variant="outline" onClick={() => navigate("/")} className="border border-green-700">
           <ArrowLeft className="mr-2 h-4 w-4" />
           પાછા જાઓ
