@@ -11,7 +11,9 @@ import {
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ShikshanikVikas from "./pages/ShikshanikVikas";
+import SamajikSeva from "./pages/SamajikSeva";
 import LatestUpdates from "./pages/LatestUpdates"; // Import the new page
+import AarogyaSeva from "./pages/AarogyaSeva";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
       {
         path: "/shikshanik-vikas",
         element: <ShikshanikVikas />,
+      },
+      {
+        path: "/samajik-seva",
+        element: <SamajikSeva />,
+      },
+      {
+        path: "/aarogya-seva",
+        element: <AarogyaSeva />,
       },
       {
         path: "/latest-updates", // Add the new route here
