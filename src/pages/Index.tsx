@@ -17,6 +17,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import LatestUpdates from "./LatestUpdates";
 
 const Section = ({
   id,
@@ -155,7 +156,7 @@ const Goals = () => {
         icon: Users,
         title: "સામાજિક અને સાંસ્કૃતિક સેવા",
         desc: "સાંસ્કૃતિક કાર્યક્રમો. સંગીત-નાટક, પ્રવાસો અને તહેવારોનું આયોજન કરવું; કુપ્રથાઓ અને અંધશ્રદ્ધા દૂર કરવા માટે પ્રવચનો તથા સભાઓ યોજવી; રાષ્ટ્રીય પ્રસંગોની ઉજવણી કરવી અને યુવાનોમાં નેતૃત્વ તથા રાષ્ટ્રપ્રેમ જગાવવો.",
-        link: "/samajik-seva", 
+        link: "/samajik-seva",
       },
       {
         icon: Leaf,
@@ -308,7 +309,7 @@ const Journey = () => {
     {
       title: "વાણીવટિકા – જ્ઞાન અને સાહિત્ય પ્રોત્સાહન",
       detail:
-      "ગ્રંથાલય અભિયાન, પુસ્તકદાન અને ગામડાંમાં વાંચન સંસ્કૃતિનું સંવર્ધન.",
+        "ગ્રંથાલય અભિયાન, પુસ્તકદાન અને ગામડાંમાં વાંચન સંસ્કૃતિનું સંવર્ધન.",
       icon: BookOpen,
     },
   ];
@@ -317,7 +318,7 @@ const Journey = () => {
       <div className="grid md:grid-cols-2 gap-6">
         {steps.map((s) => (
           <Card
-          key={s.title}
+            key={s.title}
             className="border border-border/60 bg-card/70 shadow-sm"
           >
             <CardContent className="p-6 flex gap-4">
@@ -350,32 +351,23 @@ const YouTubeIcon = ({ size = 24 }: { size?: number }) => (
 );
 
 const LatestUpdatesSection = () => (
-  <Section id="latest-updates" title="લેટેસ્ટ અપડેટ્સ">
-    <div className="text-center">
-      <Card className="inline-block border-2 border-primary hover:shadow-xl transition-shadow duration-300 max-w-2xl">
-        <CardContent className="p-8">
-          <h3 className="font-gujarati text-2xl font-bold text-primary mt-4">
-            અમારી નવીનતમ પ્રવૃત્તિઓ જુઓ
-          </h3>
-          <p className="font-gujarati text-muted-foreground mt-2">
-            આ અમારું પ્રથમ ગ્રંથમંદિરનું ઉદ્ઘાટન હતું અને ધ્રુવ દાદાએ પોતે ગીત ગાઈને શુભારંભ કર્યો હતો. માત્ર એક મિનિટની લાગણી જુઓ આનંદ થશે
-          </p>
-          <a
-            href="https://youtube.com/shorts/XVjlOp_1Omg?si=2y7KhPGjT0AGCy77"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="mt-6 inline-flex items-center bg-white text-black hover:bg-slate-300 border border-black">
-              <span className="mr-2" style={{ color: '#FF0000' }}>
-                <YouTubeIcon size={24} />
-              </span>
-              Watch Now
-            </Button>
-          </a>
-        </CardContent>
-      </Card>
+  // {/* Latest Activities Section */}
+  <div className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+    <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
+      <div className="space-y-3">
+        <h2 className="text-3xl font-bold text-primary font-gujarati md:text-4xl/tight">
+          અમારી નવીનતમ પ્રવૃત્તિઓ જુઓ
+        </h2>
+        <p className="mx-auto max-w-[600px] text-muted-foreground font-gujarati text-base md:text-2xl">
+          અહીં અમારી કેટલીક નવીનતમ પ્રવૃત્તિઓ છે. તમે વધુ વિગતો માટે નીચે
+          સ્ક્રોલ કરી શકો છો.
+        </p>
+      </div>
+      <div className="w-full max-w-4xl mx-auto pt-8">
+        <LatestUpdates />
+      </div>
     </div>
-  </Section>
+  </div>
 );
 
 const Trustees = () => (
