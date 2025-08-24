@@ -276,7 +276,7 @@ const Vision = () => (
         </div>
       </div>
       <div className="md:pl-20">
-        <img src="/vision.png" alt="Vision" className="rounded-lg shadow-md" />
+        <img src="/map.png" alt="Vision" className="rounded-lg shadow-md" />
       </div>
     </div>
   </Section>
