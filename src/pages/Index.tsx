@@ -276,7 +276,7 @@ const Vision = () => (
         </div>
       </div>
       <div className="md:pl-20">
-        <img src="/map.png" alt="Vision" className="rounded-lg shadow-md" />
+        <img src="/map-2.png" alt="Vision" className="rounded-lg shadow-md" />
       </div>
     </div>
   </Section>
@@ -383,8 +383,8 @@ const Trustees = () => (
           <li>ચૈતન્ય ત્રિવેદી – મંત્રી</li>
           <li>હર્ષ ત્રિવેદી – ખજાનચી</li>
           <li>કુલદીપ ત્રિવેદી</li>
-          <li>પ્રવીણ દવે</li>
           <li>દિવ્યેશ પુરોહિત</li>
+          <li>રમેશ પટેલ</li>
         </ul>
       </div>
       <div>
