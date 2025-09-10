@@ -107,7 +107,7 @@ const Hero = () => (
 );
 
 const About = () => (
-  <Section id="about" title="સંસ્થાપરિચય">
+  <Section id="about" title="સંસ્થા પરિચય">
     <div className="grid md:grid-cols-2 gap-6 md:gap-10">
       <div>
         <p className="font-gujarati text-base md:text-xl leading-8 text-foreground/90">
