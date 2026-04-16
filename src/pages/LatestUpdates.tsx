@@ -12,6 +12,11 @@ import { Button } from "@/components/ui/button";
 
 const updates = [
   {
+    header: "પુસ્તક મહોત્સવ",
+    body: "વિદ્યાનો ઉત્સવ અને નવા પુસ્તકોની રચના સાથે આપનું હાર્દિક સ્વાગત છે.",
+    image: "/book-mahotsav.jpeg",
+  },
+  {
     header: "ગ્રંથમંદિરનું ઉદ્ઘાટન",
     body: "આ અમારું પ્રથમ ગ્રંથમંદિરનું ઉદ્ઘાટન હતું અને ધ્રુવ દાદાએ પોતે ગીત ગાઈને શુભારંભ કર્યો હતો.",
     footer: "https://youtube.com/shorts/XVjlOp_1Omg?si=2y7KhPGjT0AGCy77",
@@ -36,20 +41,38 @@ const LatestUpdates: React.FC = () => {
     >
       <CarouselContent>
         {updates.map((update, index) => (
-          <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
+          <CarouselItem key={index} className="h-full">
+            <div className="p-1 h-full">
+              <Card className="h-full flex flex-col">
                 <CardHeader>
                   <h3 className="text-base md:text-xl font-gujarati text-primary font-semibold">{update.header}</h3>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-base md:text-lg font-gujarati">{update.body}</p>
+                <CardContent className="flex-1">
+                  {update.image && (
+                    <a
+                      href={update.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block mb-4 overflow-hidden rounded-lg border border-slate-200"
+                    >
+                      <img
+                        src={update.image}
+                        alt={update.header}
+                        className="w-full h-56 object-cover"
+                      />
+                    </a>
+                  )}
+                  {update.body && (
+                    <p className="text-base md:text-lg font-gujarati">{update.body}</p>
+                  )}
                 </CardContent>
-                <CardFooter>
-                  <a href={update.footer} target="_blank" rel="noopener noreferrer" className="w-full">
-                    <Button>Watch Now</Button>
-                  </a>
-                </CardFooter>
+                {update.footer && (
+                  <CardFooter className="mt-auto">
+                    <a href={update.footer} target="_blank" rel="noopener noreferrer" className="w-full">
+                      <Button>Watch Now</Button>
+                    </a>
+                  </CardFooter>
+                )}
               </Card>
             </div>
           </CarouselItem>

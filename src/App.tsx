@@ -12,7 +12,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ShikshanikVikas from "./pages/ShikshanikVikas";
 import SamajikSeva from "./pages/SamajikSeva";
-import LatestUpdates from "./pages/LatestUpdates"; // Import the new page
+import LatestUpdates from "./pages/LatestUpdates";
 import AarogyaSeva from "./pages/AarogyaSeva";
 
 const queryClient = new QueryClient();
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         element: <AarogyaSeva />,
       },
       {
-        path: "/latest-updates", // Add the new route here
+        path: "/latest-updates",
         element: <LatestUpdates />,
       },
       {
